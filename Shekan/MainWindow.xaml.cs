@@ -46,7 +46,7 @@ namespace Shekan
                     adapter = Win32_NetworkAdapterSetting.GetAll()
                         .FirstOrDefault(a => a.Setting.IPEnabled);
                     Thread.Sleep(100);
-                    Tray.ToolTipText = "اتصال برقرار نیست";
+                    Dispatcher.Invoke(() =>Tray.ToolTipText = "اتصال برقرار نیست");
                 } while (adapter is null);
                 return adapter;
             });

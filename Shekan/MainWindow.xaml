@@ -1,0 +1,30 @@
+﻿<Window x:Class="Shekan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hc="http://www.hardcodet.net/taskbar"
+        xmlns:local="clr-namespace:Shekan"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowState="Minimized"
+        Background="Transparent"
+        AllowsTransparency="True"
+        ShowInTaskbar="False"
+        Icon="pack://application:,,,/icon.ico"
+        Title="MainWindow" Height="500" Width="500"
+        Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <ContextMenu x:Key="trayContext">
+            <MenuItem Header="درباره" Click="TrayMenuAbout_Click" />
+            <MenuItem Header="خروج" Click="TrayMenuExit_Click" />
+        </ContextMenu>
+    </Window.Resources>
+    <Grid>
+        <hc:TaskbarIcon
+            Name="Tray"
+            Visibility="Visible" IconSource="pack://application:,,,/icon.ico"
+            ContextMenu="{StaticResource trayContext}" />
+    </Grid>
+</Window>
